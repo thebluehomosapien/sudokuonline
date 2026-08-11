@@ -263,6 +263,9 @@ body {
   backdrop-filter: blur(2px);
   animation: fadeIn 0.35s ease both;
 }
+.overlay[hidden] {
+  display: none;
+}
 @keyframes fadeIn {
   from { opacity: 0; } to { opacity: 1; }
 }
