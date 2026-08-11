@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Daily Six — a 6×6 sudoku, once a day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="paper"></div>
+
+<main class="page">
+
+  <header class="masthead">
+    <p class="eyebrow">Daily Six · a puzzle page for one</p>
+    <h1 id="greeting" class="greeting">Good&nbsp;morning.</h1>
+    <p class="dateline" id="dateline">—</p>
+  </header>
+
+  <section class="board-wrap" aria-label="Sudoku board">
+    <div id="board" class="board" role="grid" aria-label="6 by 6 sudoku grid"></div>
+
+    <div class="controls">
+      <div class="pad" id="pad" aria-label="Number pad">
+        <button class="pad-btn" data-val="1">1</button>
+        <button class="pad-btn" data-val="2">2</button>
+        <button class="pad-btn" data-val="3">3</button>
+        <button class="pad-btn" data-val="4">4</button>
+        <button class="pad-btn" data-val="5">5</button>
+        <button class="pad-btn" data-val="6">6</button>
+        <button class="pad-btn erase" data-val="0" aria-label="Erase">⌫</button>
+      </div>
+
+      <div class="actions">
+        <button id="checkBtn" class="check-btn">Check puzzle</button>
+        <p id="statusMsg" class="status-msg" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footnote">
+    <p>One new grid every day, the same for everyone who visits.</p>
+  </footer>
+
+</main>
+
+<div id="overlay" class="overlay" hidden>
+  <div class="stamp">
+    <span class="stamp-ring"></span>
+    <span class="stamp-text">Solved</span>
+  </div>
+  <p class="overlay-msg">Congrats! See you tomorrow for the next one.</p>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
