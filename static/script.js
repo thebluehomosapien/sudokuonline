@@ -9,6 +9,8 @@
   const clearBtn = document.getElementById("clearBtn");
   const padEl = document.getElementById("pad");
   const overlayEl = document.getElementById("overlay");
+  const skipConfirmChk = document.getElementById("skipConfirmChk")
+
 
   const SIZE = 6;
   let givenMask = null;
@@ -122,6 +124,10 @@
   }
 
   function clearBoard(){
+    const confirmed = window.confirm("Clear the whole board?");
+    if (!skipConfirmChk.checked && !confirmed) {
+      return;
+    }
     for (let r = 0; r < SIZE; r++) {
       for (let c = 0; c < SIZE; c++) {
         if (!givenMask[r][c]) {
@@ -210,7 +216,10 @@
 
   checkBtn.addEventListener("click", checkPuzzle);
   clearBtn.addEventListener("click" , clearBoard);
-
+  skipConfirmChk.checked = localStorage.getItem("skipConfirm") === "true";
+  skipConfirmChk.addEventListener("change", () => {
+    localStorage.setItem("skipConfirm", skipConfirmChk.checked);
+  });
   // ---------------------------------------------------------------
   // Boot
   // ---------------------------------------------------------------
