@@ -6,6 +6,7 @@
   const datelineEl = document.getElementById("dateline");
   const statusEl = document.getElementById("statusMsg");
   const checkBtn = document.getElementById("checkBtn");
+  const clearBtn = document.getElementById("clearBtn");
   const padEl = document.getElementById("pad");
   const overlayEl = document.getElementById("overlay");
 
@@ -15,6 +16,7 @@
   let selected = null; // {r, c}
   let solved = false;
   let localDateStr = null; // visitor's own YYYY-MM-DD, drives which puzzle they get
+  let grid_copy = null; // copy of the original grid to reset the board
 
   // Returns the visitor's local calendar date as YYYY-MM-DD.
   // Deliberately avoids toISOString(), which converts to UTC first and
@@ -207,6 +209,7 @@
       const res = await fetch(`/api/puzzle?date=${encodeURIComponent(localDateStr)}`);
       const data = await res.json();
       grid = data.puzzle.map((row) => row.slice());
+      grid_copy = data.puzzle.map((row) => row.slice())
       givenMask = data.given_mask;
       renderBoard();
     } catch (err) {
