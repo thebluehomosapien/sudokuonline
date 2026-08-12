@@ -209,6 +209,7 @@
   }
 
   checkBtn.addEventListener("click", checkPuzzle);
+  clearBtn.addEventListener("click" , clearBoard);
 
   // ---------------------------------------------------------------
   // Boot
