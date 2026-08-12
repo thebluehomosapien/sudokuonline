@@ -121,6 +121,16 @@
     clearStatus();
   }
 
+  function clearBoard(){
+    for (let r = 0; r < SIZE; r++) {
+      for (let c = 0; c < SIZE; c++) {
+        if (!givenMask[r][c]) {
+          grid[r][c] = 0;
+        }
+      }
+    }
+    renderBoard();
+  }
   padEl.addEventListener("click", (e) => {
     const btn = e.target.closest(".pad-btn");
     if (!btn) return;
