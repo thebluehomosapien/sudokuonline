@@ -58,6 +58,16 @@
   <p class="overlay-msg">Congrats! See you tomorrow for the next one.</p>
 </div>
 
+<div id="confirmModal" class="overlay" hidden>
+  <div class="stamp" style="width:auto; padding:24px 32px; border-radius:8px; background:var(--panel-2); transform:none;">
+    <p style="margin:0 0 16px; font-family:var(--font-body); font-size:15px;">Clear the whole board?</p>
+    <div style="display:flex; gap:10px; justify-content:center;">
+      <button id="modalCancelBtn" class="pad-btn">Cancel</button>
+      <button id="modalConfirmBtn" class="check-btn">Clear it</button>
+    </div>
+  </div>
+</div>
+
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

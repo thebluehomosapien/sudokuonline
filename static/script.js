@@ -10,6 +10,9 @@
   const padEl = document.getElementById("pad");
   const overlayEl = document.getElementById("overlay");
   const skipConfirmChk = document.getElementById("skipConfirmChk")
+  const confirmModal = document.getElementById("confirmModal");
+  const modalConfirmBtn = document.getElementById("modalConfirmBtn");
+  const modalCancelBtn = document.getElementById("modalCancelBtn");
 
 
   const SIZE = 6;
@@ -123,8 +126,8 @@
     clearStatus();
   }
 
-  function clearBoard(){
-    const confirmed = window.confirm("Clear the whole board?");
+  async function clearBoard(){
+    const confirmed = await askConfirm();
     if (!skipConfirmChk.checked && !confirmed) {
       return;
     }
@@ -142,6 +145,29 @@
     if (!btn) return;
     setValue(Number(btn.dataset.val));
   });
+
+  function askConfirm() {
+  return new Promise((resolve) => {
+    confirmModal.hidden = false;
+
+    function onConfirm() {
+      cleanup();
+      resolve(true);
+    }
+    function onCancel() {
+      cleanup();
+      resolve(false);
+    }
+    function cleanup() {
+      confirmModal.hidden = true;
+      modalConfirmBtn.removeEventListener("click", onConfirm);
+      modalCancelBtn.removeEventListener("click", onCancel);
+    }
+
+    modalConfirmBtn.addEventListener("click", onConfirm);
+    modalCancelBtn.addEventListener("click", onCancel);
+  });
+}
 
   // ---------------------------------------------------------------
   // Status + validation
