@@ -127,9 +127,12 @@
   }
 
   async function clearBoard(){
-    const confirmed = await askConfirm();
-    if (!skipConfirmChk.checked && !confirmed) {
-      return;
+    if (skipConfirmChk.checked) {
+    } else {
+      const confirmed = await askConfirm();
+      if (!confirmed) {
+        return;
+      }
     }
     for (let r = 0; r < SIZE; r++) {
       for (let c = 0; c < SIZE; c++) {
