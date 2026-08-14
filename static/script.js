@@ -13,7 +13,7 @@
   const confirmModal = document.getElementById("confirmModal");
   const modalConfirmBtn = document.getElementById("modalConfirmBtn");
   const modalCancelBtn = document.getElementById("modalCancelBtn");
-
+  const funFactEl = document.getElementById("funFact")
 
   const SIZE = 6;
   let givenMask = null;
@@ -125,7 +125,11 @@
     setTimeout(() => el.classList.remove("pop"), 180);
     clearStatus();
   }
-
+  async function showRandomFact() { 
+    try { const res = await fetch("https://uselessfacts.jsph.pl/api/v2/facts/random?language=en"); 
+      const data = await res.json(); funFactEl.textContent = data.fact; } 
+      catch (err) { funFactEl.textContent = "Couldn't load a fun fact right now."; } }
+  
   async function clearBoard(){
     if (skipConfirmChk.checked) {
     } else {
@@ -253,6 +257,7 @@
   // Boot
   // ---------------------------------------------------------------
   async function init() {
+    showRandomFact();
     setGreeting();
     try {
       const res = await fetch(`/api/puzzle?date=${encodeURIComponent(localDateStr)}`);
