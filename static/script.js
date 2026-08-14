@@ -257,8 +257,9 @@
   // Boot
   // ---------------------------------------------------------------
   async function init() {
-    showRandomFact();
+    
     setGreeting();
+    
     try {
       const res = await fetch(`/api/puzzle?date=${encodeURIComponent(localDateStr)}`);
       const data = await res.json();
@@ -272,4 +273,5 @@
   }
 
   init();
+  showRandomFact();
 })();
