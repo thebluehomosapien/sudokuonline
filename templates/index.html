@@ -39,6 +39,7 @@
         <button id="checkBtn" class="check-btn">Check puzzle</button>
         <button id="clearBtn" class="check-btn">Clear board</button>
         <label class="skip-confirm"> <input type="checkbox" id="skipConfirmChk"> Don't ask before clearing</label>
+        
         <p id="statusMsg" class="status-msg" role="status" aria-live="polite"></p>
       </div>
     </div>
@@ -59,8 +60,12 @@
 </div>
 
 <div id="confirmModal" class="overlay" hidden>
-  <div class="stamp" style="width:auto; padding:24px 32px; border-radius:8px; background:var(--panel-2); transform:none;">
+  <div class="confirm-box">
     <p style="margin:0 0 16px; font-family:var(--font-body); font-size:15px;">Clear the whole board?</p>
+    <label>
+      <input type="checkbox" id="skipConfirmChk">
+      Don't ask before clearing
+    </label>
     <div style="display:flex; gap:10px; justify-content:center;">
       <button id="modalCancelBtn" class="pad-btn">Cancel</button>
       <button id="modalConfirmBtn" class="check-btn">Clear it</button>

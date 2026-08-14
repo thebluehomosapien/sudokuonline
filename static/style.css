@@ -300,6 +300,13 @@ body {
   color: var(--success);
 }
 
+.confirm-box {
+  background: var(--panel-2);
+  padding: 24px 32px;
+  border-radius: 8px;
+  text-align: center;
+}
+
 .overlay-msg {
   max-width: 280px;
   text-align: center;
