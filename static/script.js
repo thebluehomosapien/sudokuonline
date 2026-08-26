@@ -127,7 +127,7 @@
   }
   async function showRandomFact() { 
     try { const res = await fetch("https://uselessfacts.jsph.pl/api/v2/facts/random?language=en"); 
-      const data = await res.json(); funFactEl.textContent = data.text; } 
+      const data = await res.json(); funFactEl.textContent = "Fun Fact:" + data.text; } 
       catch (err) { funFactEl.textContent = "Couldn't load a fun fact right now."; } }
   
   async function clearBoard(){
