@@ -38,6 +38,7 @@
       <div class="actions">
         <button id="checkBtn" class="check-btn">Check puzzle</button>
         <button id="clearBtn" class="check-btn">Clear board</button>
+        <button id="settingsBtn" class="pad-btn" aria-label="Settings">⚙</button>
         <p id="statusMsg" class="status-msg" role="status" aria-live="polite"></p>
       </div>
     </div>
@@ -71,6 +72,13 @@
       <button id="modalConfirmBtn" class="check-btn">Clear it</button>
     </div>
   </div>
+</div>
+
+<div id="settingsModal" class="overlay" hidden> 
+  <div class="confirm-box"> 
+    <p style="margin:0 0 16px; font-family:var(--font-body); font-size:15px;">Settings</p> 
+    <button id="closeSettingsBtn" class="pad-btn">Close</button> 
+  </div> 
 </div>
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>

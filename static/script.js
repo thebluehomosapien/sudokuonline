@@ -14,6 +14,9 @@
   const modalConfirmBtn = document.getElementById("modalConfirmBtn");
   const modalCancelBtn = document.getElementById("modalCancelBtn");
   const funFactEl = document.getElementById("funFact")
+  const settingsBtn = document.getElementById("settingsBtn");
+  const settingsModal = document.getElementById("settingsModal");
+  const closeSettingsBtn = document.getElementById("closeSettingsBtn");
 
   const SIZE = 6;
   let givenMask = null;
@@ -249,6 +252,8 @@
 
   checkBtn.addEventListener("click", checkPuzzle);
   clearBtn.addEventListener("click" , clearBoard);
+  settingsBtn.addEventListener("click", () => settingsModal.hidden = false);
+  closeSettingsBtn.addEventListener("click", () => settingsModal.hidden = true);
   skipConfirmChk.checked = localStorage.getItem("skipConfirm") === "true";
   skipConfirmChk.addEventListener("change", () => {
     localStorage.setItem("skipConfirm", skipConfirmChk.checked);
