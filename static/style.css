@@ -303,13 +303,13 @@ body {
 .confirm-box {
   background: var(--panel-2);
   padding: 24px 32px;
-  border-radius: 100px;
+  border-radius: 8px;
   text-align: center;
 }
 
 .settings-box {
   background: var(--panel-2);
-  padding: 24px 32px;
+  padding: 50px 32px;
   border-radius: 8px;
   text-align: center;
 }
