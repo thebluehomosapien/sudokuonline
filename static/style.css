@@ -303,7 +303,7 @@ body {
 .confirm-box {
   background: var(--panel-2);
   padding: 24px 32px;
-  border-radius: 8px;
+  border-radius: 14px;
   text-align: center;
 }
 
