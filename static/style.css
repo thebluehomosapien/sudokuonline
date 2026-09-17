@@ -307,11 +307,9 @@ body {
   text-align: center;
 }
 
-.settings-box {
-  background: var(--panel-2);
-  padding: 50px 32px;
-  border-radius: 8px;
-  text-align: center;
+.settingsBtn {
+  font-size: 20px;
+  padding: 8px 10px;
 }
 
 .overlay-msg {
