@@ -16,6 +16,46 @@
   --font-mono: "IBM Plex Mono", monospace;
 }
 
+/* Color themes — each defines the same variable names as :root,
+   but a different set of values. Whichever theme-* class is on <body>
+   determines which set of values every component actually uses. */
+.theme-navy {
+  --bg: #161b26; --panel: #1f2635; --panel-2: #232b3d;
+  --line: #333b52; --line-bold: #7d87a8;
+  --ink: #ece8dd; --muted: #8a93ac;
+  --accent: #e8b84b; --accent-dim: #a9873c;
+}
+.theme-forest {
+  --bg: #101f1a; --panel: #16281f; --panel-2: #1c3226;
+  --line: #2e4a3a; --line-bold: #5f8f74;
+  --ink: #e9f2ea; --muted: #86a894;
+  --accent: #7fd9a0; --accent-dim: #4f9c6c;
+}
+.theme-sunset {
+  --bg: #221019; --panel: #2c1620; --panel-2: #391d29;
+  --line: #55283a; --line-bold: #a85a72;
+  --ink: #fbe9ea; --muted: #c98fa0;
+  --accent: #f2884f; --accent-dim: #c66a37;
+}
+.theme-ocean {
+  --bg: #0c1b26; --panel: #122531; --panel-2: #17303f;
+  --line: #244a5e; --line-bold: #4f8aa8;
+  --ink: #e3f1f7; --muted: #7fa8bb;
+  --accent: #58c4e0; --accent-dim: #2f96b0;
+}
+.theme-rose {
+  --bg: #1e1620; --panel: #271b2a; --panel-2: #332237;
+  --line: #4d3653; --line-bold: #8a6a91;
+  --ink: #f5e9f2; --muted: #b490ae;
+  --accent: #e08fc0; --accent-dim: #b866a0;
+}
+.theme-mono {
+  --bg: #161616; --panel: #1f1f1f; --panel-2: #292929;
+  --line: #3a3a3a; --line-bold: #6b6b6b;
+  --ink: #ececec; --muted: #9a9a9a;
+  --accent: #d8d8d8; --accent-dim: #a0a0a0;
+}
+
 * { box-sizing: border-box; }
 
 html, body {
@@ -332,6 +372,23 @@ body {
   font-size: 15px;
   color: var(--ink);
   animation: fadeUp 0.5s ease 0.25s both;
+}
+
+.theme-swatches {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  cursor: pointer;
+  padding: 0;
+}
+.swatch.active {
+  border-color: var(--ink);
 }
 
 /* accessibility */
