@@ -312,13 +312,17 @@ body {
   padding: 8px 10px;
 }
 
-.settings-box { 
-  background: var(--panel-2); 
-  padding: 24px 32px; 
-  border-radius: 8px; 
-  text-align: center; 
-  width: 90%; 
-  max-width: 420px; 
+.settings-box {
+  background: var(--panel-2);
+  padding: 24px 32px;
+  border-radius: 8px;
+  text-align: center;
+  width: 90%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
 }
 
 .overlay-msg {
