@@ -63,10 +63,6 @@
 <div id="confirmModal" class="overlay" hidden>
   <div class="confirm-box">
     <p style="margin:0 0 16px; font-family:var(--font-body); font-size:15px;">Clear the whole board?</p>
-    <label>
-      <input type="checkbox" id="skipConfirmChk">
-      Don't ask before clearing
-    </label>
     <div style="display:flex; gap:10px; justify-content:center;">
       <button id="modalCancelBtn" class="pad-btn">Cancel</button>
       <button id="modalConfirmBtn" class="check-btn">Clear it</button>
@@ -77,6 +73,10 @@
 <div id="settingsModal" class="overlay" hidden> 
   <div class="settings-box"> 
     <p style="margin:0 0 16px; font-family:var(--font-body); font-size:15px;">Settings</p> 
+      <label>
+      <input type="checkbox" id="skipConfirmChk">
+      Don't ask before clearing
+    </label>
     <button id="closeSettingsBtn" class="pad-btn">Close</button> 
   </div> 
 </div>
