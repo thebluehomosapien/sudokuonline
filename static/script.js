@@ -17,7 +17,10 @@
   const settingsBtn = document.getElementById("settingsBtn");
   const settingsModal = document.getElementById("settingsModal");
   const closeSettingsBtn = document.getElementById("closeSettingsBtn");
-
+  const THEMES = ["theme-navy", "theme-forest", "theme-sunset", "theme-ocean", "theme-rose", "theme-mono"]; 
+  const themeSwatches = document.querySelectorAll(".swatch");
+  applyTheme(localStorage.getItem("theme") || "theme-navy");
+  
   const SIZE = 6;
   let givenMask = null;
   let grid = null; // current working grid (numbers, 0 = blank)
@@ -250,10 +253,17 @@
     );
   }
 
+  function applyTheme(themeName) {
+    THEMES.forEach(t => document.body.classList.remove(t));
+    document.body.classList.add(themeName);
+    localStorage.setItem("theme", themeName);
+}
+
   checkBtn.addEventListener("click", checkPuzzle);
   clearBtn.addEventListener("click" , clearBoard);
   settingsBtn.addEventListener("click", () => settingsModal.hidden = false);
   closeSettingsBtn.addEventListener("click", () => settingsModal.hidden = true);
+  themeSwatches.forEach(btn => btn.addEventListener("click", () => applyTheme(btn.dataset.theme)));
   skipConfirmChk.checked = localStorage.getItem("skipConfirm") === "true";
   skipConfirmChk.addEventListener("change", () => {
     localStorage.setItem("skipConfirm", skipConfirmChk.checked);
@@ -280,3 +290,7 @@
   init();
   showRandomFact();
 })();
+
+
+
+
